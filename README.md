@@ -9,7 +9,7 @@ This is an example, there is no guarantee this code is secure! Use at your own r
 
 …go to [Benjamin Milde](https://github.com/LostKobrakai) for his code example on how to use FastRoute with ProcessWire and [Camilo Castro](https://gist.github.com/clsource) for this [Gist](https://gist.github.com/clsource/dc7be74afcbfc5fe752c)
 
-###Install
+### Install
 
 Grab a copy of processwire and place the site-restapi directory in the root of your ProcessWire directory. Install ProcessWire as usual (don’t forget to pick the site profile).
 
