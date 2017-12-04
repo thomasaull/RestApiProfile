@@ -54,7 +54,7 @@ Go to /site/templates/client/config/index.js and change the target in *proxyTabl
 ```
 proxyTable: {
   '/api': {
-    target: 'http://pwrestapi.dev',
+    target: 'http://change-to-your-dev-host.dev',
     changeOrigin: true
   }
 },
