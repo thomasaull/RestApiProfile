@@ -35,7 +35,7 @@ You should get the following error:
 }
 ```
 
-Because you’re not authenticated yet. To disable authentication, go to /site/templates/api/Router.php and in the function *handle* set the variable $authActive to false.
+Because you’re not authenticated yet. To disable authentication, go to /site/templates/api/Router.php and in the function *handle* set the variable $authActive to false for now.
 
 If you run the same Request again, you’ll get the following:
 ```
@@ -46,8 +46,7 @@ If you run the same Request again, you’ll get the following:
 
 To use JWT-Auth you have to send a GET Request to /auth with two parameters, username and password. The API will log your user in and return you the JWT-Token, which you have to add to every following request.
 
-An example for a simple login form is implemented as a Vue SPA based on the [Vue Webpack Template](https://github.com/vuejs-templates/webpack)
-To install, go to /site/templates/client and run `npm install`
+An example for a simple login form is implemented as a Vue SPA based on the [Vue Webpack Template](https://github.com/vuejs-templates/webpack). To install, go to /site/templates/client and run `npm install`
 
 Go to /site/templates/client/config/index.js and change the target in *proxyTable* to match your URL:
 
