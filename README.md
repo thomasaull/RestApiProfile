@@ -21,15 +21,17 @@ composer require nikic/fast-route
 composer require firebase/php-jwt
 ```
 
+Alternatively, you can grab the /vendor folder over here: https://github.com/thomasaull/RestApiProfile-Src
+
 The Rest-API should work now. To check you can use [Postman](https://www.getpostman.com/) or [Insomnia](https://insomnia.rest/) and run a GET Request:
 
-`http://pwrestapi.dev/api/test`
+`http://your-dev-host.dev/api/test`
 
 You should get the following error:
 
 ```
 {
-	"error": "No Authorization Header found"
+  "error": "No Authorization Header found"
 }
 ```
 
@@ -38,34 +40,29 @@ Because you’re not authenticated yet. To disable authentication, go to /site/t
 If you run the same Request again, you’ll get the following:
 ```
 {
-	"user": "guest"
+  "user": "guest"
 }
 ```
 
 To use JWT-Auth you have to send a GET Request to /auth with two parameters, username and password. The API will log your user in and return you the JWT-Token, which you have to add to every following request.
 
-An example for a simple login form is implemented as a Vue SPA.
-To install, go to /site/templates/client and run the following commands
-
-```
-npm install
-npm run dev
-```
+An example for a simple login form is implemented as a Vue SPA based on the [Vue Webpack Template](https://github.com/vuejs-templates/webpack)
+To install, go to /site/templates/client and run `npm install`
 
 Go to /site/templates/client/config/index.js and change the target in *proxyTable* to match your URL:
 
 ```
 proxyTable: {
-	'/api': {
-		target: 'http://pwrestapi.dev',
-		changeOrigin: true
-	}
+  '/api': {
+    target: 'http://pwrestapi.dev',
+    changeOrigin: true
+  }
 },
 ```
 
-Point your browser to http://localhost:8080 and you should be able to login with your user.
+Now run `npm run dev`, point your browser to http://localhost:8080 and you should be able to perform a login with your user.
 
-Check the files components/Login.vue, components/Content.vue and the main.js inside /site/templates/client to learn how the login  process works.
+Check the files components/Login.vue, components/Content.vue and the main.js inside /site/templates/client to learn how the login process works.
 
 As a last step you should change your JWT Secret in your config.php. You can basically use any string but a good idea is to create a random string with the following PHP command:
 
