@@ -34,6 +34,7 @@ if(!defined("PROCESSWIRE")) die();
  */
 $config->debug = true;
 
+$config->defaultAdminTheme = 'AdminThemeUikit';
 $config->jwtSecret = "ZxDWh8rXl16lrpX6jHBNUh+9uEv9g7jv3ebVHthTUnM2x30Lq2aMr1Ekij8LDgde/D/K04clCV9/gNxivEibjQ==";
 
 

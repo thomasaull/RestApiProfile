@@ -13,11 +13,11 @@ use \Firebase\JWT\JWT;
 
 $content = Router::go(function(\FastRoute\RouteCollector $r)
 {
-  $r->addRoute('GET', '', ApiHelper::class . '@noEndpoint');
-  $r->addRoute('POST', '', ApiHelper::class . '@noEndpoint');
-  $r->addRoute('PUT', '', ApiHelper::class . '@noEndpoint');
-  $r->addRoute('PATCH', '', ApiHelper::class . '@noEndpoint');
-  $r->addRoute('DELETE', '', ApiHelper::class . '@noEndpoint');
+  $r->addRoute('GET', '/', ApiHelper::class . '@noEndpoint');
+  $r->addRoute('POST', '/', ApiHelper::class . '@noEndpoint');
+  $r->addRoute('PUT', '/', ApiHelper::class . '@noEndpoint');
+  $r->addRoute('PATCH', '/', ApiHelper::class . '@noEndpoint');
+  $r->addRoute('DELETE', '/', ApiHelper::class . '@noEndpoint');
 
   $r->addGroup('/auth', function (\FastRoute\RouteCollector $r)
   {
@@ -29,7 +29,7 @@ $content = Router::go(function(\FastRoute\RouteCollector $r)
   $r->addGroup('/test', function (\FastRoute\RouteCollector $r)
   {
     $r->addRoute('GET', '', Test::class . '@getSomeData');
-    // $r->addRoute('POST', '', ApiTest::class . '@postTest');
+    $r->addRoute('POST', '', Test::class . '@postWithSomeData');
   });
 });
 
