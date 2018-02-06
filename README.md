@@ -44,7 +44,7 @@ If you run the same Request again, you’ll get the following:
 }
 ```
 
-To use JWT-Auth you have to send a GET Request to /auth with two parameters, username and password. The API will log your user in and return you the JWT-Token, which you have to add to every following request.
+To use JWT-Auth you have to send a GET Request to http://yourhost/api/auth with two parameters, username and password. The API will log your user in and return you the JWT-Token, which you have to add to every following request.
 
 An example for a simple login form is implemented as a Vue SPA based on the [Vue Webpack Template](https://github.com/vuejs-templates/webpack). To install, go to /site/templates/client and run `npm install`
 
@@ -66,3 +66,17 @@ Check the files components/Login.vue, components/Content.vue and the main.js ins
 As a last step you should change your JWT Secret in your config.php. You can basically use any string but a good idea is to create a random string with the following PHP command:
 
 `echo base64_encode(openssl_random_pseudo_bytes(64));`
+
+### Helper
+
+There is a small helper class, which exposes some often used functionality. At the moment there's basically just one function available, but I for my part use it all the time: `checkAndSanitizeRequiredParameters`. This function checks if the client send all the parameters required and sanitizes them against a specified ProcessWire sanitizer. To use it call it first thing in your Api endpoint function:
+```
+public static function postWithSomeData($data) {
+  // Check for required parameter "message" and sanitize with PW Sanitizer
+  $data = ApiHelper::checkAndSanitizeRequiredParameters($data, ['message|text']);
+
+  return "Your message is: " . $data->message;
+}
+```
+
+An example can be found here: 
