@@ -12,7 +12,7 @@ module.exports = {
     assetsPublicPath: '/',
     proxyTable: {
       '/api': {
-        target: 'http://pwrestapi.dev',
+        target: 'http://pwrestapi.test',
         changeOrigin: true
       }
     },

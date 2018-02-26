@@ -34,10 +34,7 @@ class Auth
   }
 
   public static function login($data) {
-    ApiHelper::checkRequiredParameters($data, ['username', 'password']);
-    
-    $data->username = wire('sanitizer')->selectorValue($data->username);
-    $data->password = wire('sanitizer')->string($data->password);
+    ApiHelper::checkAndSanitizeRequiredParameters($data, ['username|selectorValue', 'password|string']);
 
     $user = wire('users')->get($data->username);
 

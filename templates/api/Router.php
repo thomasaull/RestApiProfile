@@ -69,7 +69,6 @@ class Router
   public static function handle($class, $method, $vars)
   {
     $authActive = true;
-    // if(!$authActive) \TD::fireLog('WARNING: Auth disabled!');
 
     header("Content-Type: application/json");
     $return = new \StdClass();

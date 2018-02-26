@@ -10,17 +10,19 @@ class ApiHelper
     foreach ($params as $param) {
       // Split param: Format is name|sanitizer
       $name = explode('|', $param)[0];
-      $sanitizer = explode('|', $param)[1];
 
       // Check if Param exists
-      if (!isset($data->$name)) throw new \Exception('Required parameter "' . $param .'" missing!', 400);
+      if (!isset($data->$name)) throw new \Exception("Required parameter: '$param' missing!", 400);
+
+      $sanitizer = explode('|', $param);
 
       // Sanitize Data
-      if (!$sanitizer) {
-        \TD::fireLog('WARNING: No Sanitizer specified for: ' . $name . ' Applying default sanitizer: text');
-        $data->$name = wire('sanitizer')->text($data->$name);
-      }
+      // If no sanitizer is defined, use the text sanitizer as default
+      if (!isset($sanitizer[1])) $sanitizer = 'text';
+      else $sanitizer = $sanitizer[1];
 
+      if(!method_exists(wire('sanitizer'), $sanitizer)) throw new \Exception("Sanitizer: '$sanitizer' ist no valid sanitizer", 400);
+      
       $data->$name = wire('sanitizer')->$sanitizer($data->$name);
     }
 
