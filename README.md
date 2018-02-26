@@ -79,4 +79,4 @@ public static function postWithSomeData($data) {
 }
 ```
 
-An example can be found here: 
+An example can be found here: https://github.com/thomasaull/RestApiProfile/blob/master/templates/api/Test.php#L15
