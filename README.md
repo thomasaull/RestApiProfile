@@ -1,3 +1,7 @@
+# Update
+
+There is now a module for creation of a REST API in ProcessWire: https://github.com/thomasaull/RestApi Support and Updates for this site profile will be discontinued from now on
+
 # RestApiProfile
 Build a rest API with ProcessWire. Including JWT-Auth and a Vue SPA example
 
@@ -37,7 +41,7 @@ You should get the following error:
 
 Because you’re not authenticated yet. To disable authentication, go to /site/templates/api/Router.php and in the function *handle* set the variable $authActive to false for now.
 
-If you run the same Request again, you’ll get the following:
+If you run the same Request again, you’ll get the following
 ```
 {
   "user": "guest"
