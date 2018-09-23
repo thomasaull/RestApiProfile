@@ -80,7 +80,7 @@ class Router
     {
       // convert all headers to lowercase:
       $headers = array();
-      foreach(apache_request_headers() as $key => $value) {
+      foreach($_SERVER as $key => $value) {
         $headers[strtolower($key)] = $value;
       }
 
